@@ -1,0 +1,1 @@
+# Zarodolgozat_frontend_mobil
