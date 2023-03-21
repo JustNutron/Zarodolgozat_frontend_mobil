@@ -104,11 +104,11 @@ export default class ButtonBasics extends Component {
               </Text>
               <Image   source={{uri: IP.ipcim+item.alaplap_kep+'.png'}} style={styles.kep}   />          
               </View>
+
+              
             )}
           />
-
-
-
+          
           <FlatList
             data={this.state.dataSource3}
             keyExtractor={({ processzor_id}, index) => processzor_id}

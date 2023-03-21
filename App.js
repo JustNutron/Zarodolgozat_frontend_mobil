@@ -13,7 +13,8 @@ import Videokartya from './Videokartya'
 import Gephaz from './Gephaz'
 import Alkatreszek from './Alkatreszek'
 import Kereses from './Kereses'
-import Valogat from './Valogat'
+import Jatekok from './Jatekok'
+import Tapegyseg from './Tapegyseg'
 
 
 function Alkatreszek_lap({ navigation }) {
@@ -28,12 +29,6 @@ function Kereses_lap({ navigation }) {
   );
 }
 
-function Pcepites_lap({ navigation }) {
-  return (
-    <Pcepites navigation={ navigation } />
-  );
-}
-
 function Alaplapok_lap({ navigation }) {
   return (
     <Alaplapok navigation={navigation}
@@ -41,10 +36,23 @@ function Alaplapok_lap({ navigation }) {
   );
 }
 
+function Tapegyseg_lap({ navigation }) {
+  return (
+    <Tapegyseg navigation={navigation}
+      options={{headerShown: false }}/>
+  );
+}
 
 function Processzorok_lap({ navigation }) {
   return (
    <Processzorok navigation={ navigation }
+    options={{headerShown: false}}/>
+  );
+}
+
+function Jatekok_lap({ navigation }) {
+  return (
+   <Jatekok navigation={ navigation }
     options={{headerShown: false}}/>
   );
 }
@@ -63,11 +71,10 @@ function Gephaz_lap({ navigation }) {
   );
 }
 
-//Isitmtől nekem
-function Valogat_lap({ navigation }) {
+//Istimtől nekem
+function Pcepites_lap({ navigation }) {
   return (
-    <Valogat navigation={navigation}
-      options={{headerShown: false }}/>
+    <Pcepites navigation={ navigation } />
   );
 }
 
@@ -105,16 +112,18 @@ function Root({ navigation }) {
             <Ionicons name='search' size={22} color={color}/>
           )
         }}/>
-        <Drawer.Screen name="Profil" component={Profil_lap} options={{
+        {/*<Drawer.Screen name="Profil" component={Profil_lap} options={{
           drawerIcon: ({color}) => (
             <Ionicons name='person' size={22} color={color}/>
           )
         }}/>
-        <Drawer.Screen name="Beállítások" component={Beallitasok_lap} options={{
+        */}
+        {/*<Drawer.Screen name="Beállítások" component={Beallitasok_lap} options={{
           drawerIcon: ({color}) => (
             <Ionicons name='settings' size={22} color={color}/>
           )
         }}/>
+        */}
         <Drawer.Screen name="PC Építés" component={Pcepites_lap} options={{
           drawerIcon: ({color}) => (
             <Ionicons name='build' size={22} color={color}/>
@@ -125,9 +134,10 @@ function Root({ navigation }) {
             <Ionicons name='basket' size={22} color={color}/>
           )
         }}/>
-        <Drawer.Screen name="Válogat" component={Valogat_lap} options={{
+        
+        <Drawer.Screen name="Játékok" component={Jatekok_lap} options={{
           drawerIcon: ({color}) => (
-            <Ionicons name='basket' size={22} color={color}/>
+            <Ionicons name='play' size={22} color={color}/>
           )
         }}/>
         
@@ -156,6 +166,7 @@ export default function App() {
     <Stack.Screen name="Processzorok" component={Processzorok} options={{headerShown: false}} />
     <Stack.Screen name="Videokartya" component={Videokartya} options={{headerShown: false}} />
     <Stack.Screen name="Gephaz" component={Gephaz} options={{headerShown: false}} />
+    <Stack.Screen name="Tapegyseg" component={Tapegyseg} options={{headerShown: false}} />
     
 
     </Stack.Navigator>

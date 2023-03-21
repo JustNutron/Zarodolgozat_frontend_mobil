@@ -66,7 +66,7 @@ export default class App extends Component {
        <Text style={styles.alcim}>Táp</Text>
        <TouchableOpacity
          style={styles.button}
-         onPress={this.onPress}
+         onPress={()=>this.props.navigation.navigate('Tapegyseg')}
        >
          
          <Image style={styles.kiskep} source={require('./kepek/tap.jpg')} />

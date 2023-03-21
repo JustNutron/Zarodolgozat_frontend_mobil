@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,SafeAreaView,TextInput} from 'react-native';
 const IP = require('./ipcim');
 
-export default class Tapegyseg extends Component {
+export default class Alaplap extends Component {
   constructor(props) {
     super(props);
 
@@ -14,7 +14,7 @@ export default class Tapegyseg extends Component {
 
   async getMovies() {
     try {
-      const response = await fetch(IP.ipcim+'tapegyseg');
+      const response = await fetch(IP.ipcim+'jatekok');
       const json = await response.json();
       console.log(json)
       this.setState({ data: json });
@@ -41,17 +41,17 @@ export default class Tapegyseg extends Component {
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
             data={data}
-            keyExtractor={({ tapegyseg_id}, index) => tapegyseg_id}
+            keyExtractor={({ jatekok_id}, index) => jatekok_id}
             renderItem={({ item }) => (
 
               <View style={{marginBottom:30}}>
               <Text style={styles.marka}>
-                {item.tapegyseg_marka}
+                {item.jatek_nev}
               </Text>
               <Text style={styles.tipus}>
-                {item.tapegyseg_nev}
+                {item.jatek_mufaj}
               </Text>
-              <Image source={{uri: IP.ipcim+item.tapegyseg_kep+'.png'}} style={styles.kep}   />          
+              <Image   source={{uri: IP.ipcim+item.jatekok_kep+'.jpg'}} style={styles.kep}   />          
               </View>
             )}
           />
