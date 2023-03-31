@@ -48,7 +48,7 @@ export default class App extends Component {
        <Text style={styles.alcim}>Memória</Text>
        <TouchableOpacity
          style={styles.button}
-         onPress={this.onPress}
+         onPress={()=>this.props.navigation.navigate('Memoria')}
        >
          
          <Image style={styles.kiskep} source={require('./kepek/memoria.jpg')} />
@@ -57,7 +57,8 @@ export default class App extends Component {
        <Text style={styles.alcim}>Háttértár</Text>
        <TouchableOpacity
          style={styles.button}
-         onPress={this.onPress}
+         onPress={()=>this.props.navigation.navigate('Hattertar')}
+
        >
          
          <Image style={styles.kiskep} source={require('./kepek/hatter.jpg')} />
@@ -75,7 +76,7 @@ export default class App extends Component {
        <Text style={styles.alcim}>Hütő</Text>
        <TouchableOpacity
          style={styles.button}
-         onPress={this.onPress}
+         onPress={()=>this.props.navigation.navigate('Processzor_huto')}
        >
          
          <Image style={styles.kiskep} source={require('./kepek/huto.jpg')} />

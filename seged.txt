@@ -1,0 +1,52 @@
+<View style={[styles.container,
+        {
+            flexDirection: "column"
+        }]}>
+        <View style={{flex: 1, backgroundColor: 'purple', borderRadius: 10, borderColor:'white', border: 10}}>
+            <View style={styles.barview}>
+            <TextInput
+              style={{height: 40, margin:10, padding:10, backgroundColor: 'white'}}
+              placeholder="Termék"
+              
+              
+              
+              onChangeText={(szoveg) => this.setState({szo : szoveg})}
+              
+              value={this.state.szo}
+              
+      />       
+                
+            </View>
+            <View style={styles.buttonview}>
+                <Pressable onPress={()=>this.kattintas()}>
+                    <Text style={{alignSelf: 'center', marginTop: 10, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 ,backgroundColor: '#9D1DA7', borderRadius: 10, color: 'white'}} >Keresés</Text>
+                </Pressable>
+                
+            </View>
+        </View>
+
+          
+        <View style={{flex: 2, backgroundColor: 'black'}}>
+        <FlatList
+            data={this.state.dataSource}
+            keyExtractor={({ elemid }, index) => elemid}
+            renderItem={({ item }) => (
+
+              <View style={{marginBottom:30}}>
+              
+              <Text style={{color: 'white'}}>
+                {item.elemnev}
+              </Text>
+              
+              
+              <Image source={{uri: IP.ipcim+item.elemkep+'.png'}} style={styles.kep}/>    
+              </View>
+
+          
+            )}
+          />
+
+          
+        </View> 
+        
+      </View>

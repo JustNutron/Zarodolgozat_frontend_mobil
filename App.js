@@ -15,7 +15,9 @@ import Alkatreszek from './Alkatreszek'
 import Kereses from './Kereses'
 import Jatekok from './Jatekok'
 import Tapegyseg from './Tapegyseg'
-
+import Memoria from './Memoria'
+import Processzor_huto from './Processzor_huto'
+import Hattertar from './Hattertar'
 
 function Alkatreszek_lap({ navigation }) {
   return (
@@ -42,6 +44,28 @@ function Tapegyseg_lap({ navigation }) {
       options={{headerShown: false }}/>
   );
 }
+
+function Memoria_lap({ navigation }) {
+  return (
+    <Memoria navigation={navigation}
+      options={{headerShown: false }}/>
+  );
+}
+
+function Processzor_huto_lap({ navigation }) {
+  return (
+    <Processzor_huto navigation={navigation}
+      options={{headerShown: false }}/>
+  );
+}
+
+function Hattertar_lap({ navigation }) {
+  return (
+    <Hattertar navigation={navigation}
+      options={{headerShown: false }}/>
+  );
+}
+
 
 function Processzorok_lap({ navigation }) {
   return (
@@ -167,7 +191,10 @@ export default function App() {
     <Stack.Screen name="Videokartya" component={Videokartya} options={{headerShown: false}} />
     <Stack.Screen name="Gephaz" component={Gephaz} options={{headerShown: false}} />
     <Stack.Screen name="Tapegyseg" component={Tapegyseg} options={{headerShown: false}} />
-    
+    <Stack.Screen name="Memoria" component={Memoria} options={{headerShown: false}} />
+    <Stack.Screen name="Processzor_huto" component={Processzor_huto} options={{headerShown: false}} />
+    <Stack.Screen name="Hattertar" component={Hattertar} options={{headerShown: false}} />
+
 
     </Stack.Navigator>
     </NavigationContainer>
