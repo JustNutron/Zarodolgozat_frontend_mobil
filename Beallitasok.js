@@ -45,7 +45,7 @@ const SECTIONS = [
 
 export default function Example() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView>
       <ScrollView contentContainerStyle={styles.container}>
         {SECTIONS.map(({ header, items }) => (
           <View style={styles.section} key={header}>

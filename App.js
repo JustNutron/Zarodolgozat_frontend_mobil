@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContentScrollView, createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -136,18 +136,6 @@ function Root({ navigation }) {
             <Ionicons name='search' size={22} color={color}/>
           )
         }}/>
-        {/*<Drawer.Screen name="Profil" component={Profil_lap} options={{
-          drawerIcon: ({color}) => (
-            <Ionicons name='person' size={22} color={color}/>
-          )
-        }}/>
-        */}
-        {/*<Drawer.Screen name="Beállítások" component={Beallitasok_lap} options={{
-          drawerIcon: ({color}) => (
-            <Ionicons name='settings' size={22} color={color}/>
-          )
-        }}/>
-        */}
         <Drawer.Screen name="PC Építés" component={Pcepites_lap} options={{
           drawerIcon: ({color}) => (
             <Ionicons name='build' size={22} color={color}/>
@@ -165,9 +153,27 @@ function Root({ navigation }) {
           )
         }}/>
         
-      {/*  <Drawer.Screen name="Processzorok" component={Processzorok_lap} />
-       <Drawer.Screen name="Alaplapok" component={Alaplapok_lap} /> */} 
+        
+        <Drawer.Screen name="Profil" component={Profil_lap} options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name='person' size={22} color={color}/>
+          )
+        }}/>
+        
+        {/*
+        <Drawer.Screen name="Beállítások" component={Beallitasok_lap} options={{
+          drawerIcon: ({color}) => (
+            <Ionicons name='settings' size={22} color={color}/>
+          )
+        }}/>
+        
+        <Drawer.Screen name="Processzorok" component={Processzorok_lap} />
+        <Drawer.Screen name="Alaplapok" component={Alaplapok_lap} />
+        */} 
       </Drawer.Navigator>
+
+
+    
 
   );
 }

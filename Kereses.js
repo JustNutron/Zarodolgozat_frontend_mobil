@@ -249,23 +249,23 @@ export default class ButtonBasics extends Component {
         {
             flexDirection: "column"
         }]}>
-        <View style={{flex: 1, backgroundColor: 'purple', borderRadius: 10, borderColor:'white', border: 10}}>
+        <View style={{flex: 0.7, backgroundColor: 'purple', borderRadius: 30, marginLeft: 20, marginTop: 20, marginRight: 20}}>
             <View style={styles.barview}>
             <TextInput
-              style={{height: 40, margin:10, padding:10, backgroundColor: 'white'}}
-              placeholder="Termék"
+              style={{backgroundColor: 'white', padding: 10, borderRadius: 20, color: 'purple'}}
+              placeholder="Termék keresése"
               onChangeText={(szoveg) => this.setState({szo : szoveg})}
               value={this.state.szo}
       />         
             </View>
             <View style={styles.buttonview}>
                 <Pressable onPress={()=>this.kattintas()}>
-                    <Text style={{alignSelf: 'center', marginTop: 10, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 ,backgroundColor: '#9D1DA7', borderRadius: 10, color: 'white'}} >Keresés</Text>
+                    <Text style={{alignSelf: 'center', marginTop: 20 ,paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 ,backgroundColor: '#9D1DA7', borderRadius: 10, color: 'white'}} >Keresés</Text>
                 </Pressable>
                 
             </View>
         </View>
-        <View style={{flex: 2, backgroundColor: 'black'}}>
+        <View style={{flex: 2.3, backgroundColor: 'black', margin: 20 }}>
         <FlatList
             data={this.state.dataSource}
             keyExtractor={({ elemid }, index) => elemid}
@@ -305,10 +305,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20
   },
-  buttonview: {
-    marginLeft: 100,
-    marginRight: 100
-  },
+
   marka:{
     textAlign:'left',
     fontSize:21,

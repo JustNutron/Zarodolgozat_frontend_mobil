@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity,SafeAreaView,TextInput} from 'react-native';
 const IP = require('./ipcim');
 
-export default class Processzor extends Component {
+export default class Processzorok extends Component {
   constructor(props) {
     super(props);
 
@@ -37,21 +37,45 @@ export default class Processzor extends Component {
     return (
       
       <SafeAreaView style={styles.container}>
+
       <View style={styles.hatter}>
+      
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
             data={data}
             keyExtractor={({ processzor_id}, index) => processzor_id}
             renderItem={({ item }) => (
-
-              <View style={{marginBottom:30}}>
-              <Text style={styles.marka}>
+              
+              <View style={[{marginBottom:30}]}>
+                <View>
+                <Text style={styles.marka}>
                 {item.processzor_marka}
               </Text>
               <Text style={styles.tipus}>
                 {item.processzor_nev}
               </Text>
-              <Image   source={{uri: IP.ipcim+item.processzor_kep+'.png'}} style={styles.kep}   />          
+              </View>
+              <View style={{flexDirection: "row"}}>
+              <View style={{flex:2}}>
+              <Image   source={{uri: IP.ipcim+item.processzor_kep+'.png'}} style={styles.kep}   />
+              </View> 
+
+
+                <View style={{flex:2}}>
+              <Text style={styles.adatok}>
+                Teljesítmény:
+                {item.processzor_teljesitmeny}
+              </Text>
+              <Text style={styles.adatok}>
+                Foglalat:  
+                { item.processzor_foglalat}
+              </Text>
+              <Text style={styles.adatok}>
+                Gyártási technológia:
+                 {item.processzor_gyart_tech} Nm
+              </Text>
+              </View>
+              </View>    
               </View>
             )}
           />
@@ -124,5 +148,18 @@ const styles = StyleSheet.create({
     borderColor:'purple',
     borderWidth:5,
     marginLeft:10
+  },
+  adatok:{
+    fontSize:14,
+    color:'white',
+    textAlign:'left',
+    marginBottom:8,
+    textShadowOffset:{
+      height:5,
+      width:5
+    },
+    textShadowColor:'black',
+    textShadowRadius:10,
+    paddingStart:10
   }
 });

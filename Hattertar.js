@@ -37,21 +37,45 @@ export default class Hattertar extends Component {
     return (
       
       <SafeAreaView style={styles.container}>
+
       <View style={styles.hatter}>
+      
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
             data={data}
             keyExtractor={({ hattertar_id}, index) => hattertar_id}
             renderItem={({ item }) => (
-
-              <View style={{marginBottom:30}}>
-              <Text style={styles.marka}>
+              
+              <View style={[{marginBottom:30}]}>
+                <View>
+                <Text style={styles.marka}>
                 {item.hattertar_marka}
               </Text>
               <Text style={styles.tipus}>
                 {item.hattertar_nev}
               </Text>
-              <Image   source={{uri: IP.ipcim+item.hattertar_kep+'.png'}} style={styles.kep}   />          
+              </View>
+              <View style={{flexDirection: "row"}}>
+              <View style={{flex:2}}>
+              <Image   source={{uri: IP.ipcim+item.hattertar_kep+'.png'}} style={styles.kep}   />
+              </View> 
+
+
+                <View style={{flex:2}}>
+              <Text style={styles.adatok}>
+                Típus:
+                {item.hattertar_tipus}
+              </Text>
+              <Text style={styles.adatok}>
+                Interface: 
+                {item.hattertar_interface}
+              </Text>
+              <Text style={styles.adatok}>
+                Kapacitás: 
+                 {item.hattertar_kapacitas} GB
+              </Text>
+              </View>
+              </View>    
               </View>
             )}
           />
@@ -124,5 +148,18 @@ const styles = StyleSheet.create({
     borderColor:'purple',
     borderWidth:5,
     marginLeft:10
+  },
+  adatok:{
+    fontSize:14,
+    color:'white',
+    textAlign:'left',
+    marginBottom:8,
+    textShadowOffset:{
+      height:5,
+      width:5
+    },
+    textShadowColor:'black',
+    textShadowRadius:10,
+    paddingStart:10
   }
 });

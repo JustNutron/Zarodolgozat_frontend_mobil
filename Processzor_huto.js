@@ -14,7 +14,7 @@ export default class Processzor_huto extends Component {
 
   async getMovies() {
     try {
-      const response = await fetch(IP.ipcim+'processzor_hutok');
+      const response = await fetch(IP.ipcim+'processzor_huto');
       const json = await response.json();
       console.log(json)
       this.setState({ data: json });
@@ -37,21 +37,45 @@ export default class Processzor_huto extends Component {
     return (
       
       <SafeAreaView style={styles.container}>
+
       <View style={styles.hatter}>
+      
         {isLoading ? <ActivityIndicator/> : (
           <FlatList
             data={data}
             keyExtractor={({ processzor_huto_id}, index) => processzor_huto_id}
             renderItem={({ item }) => (
-
-              <View style={{marginBottom:30}}>
-              <Text style={styles.marka}>
+              
+              <View style={[{marginBottom:30}]}>
+                <View>
+                <Text style={styles.marka}>
                 {item.processzor_huto_marka}
               </Text>
               <Text style={styles.tipus}>
                 {item.processzor_huto_nev}
               </Text>
-              <Image   source={{uri: IP.ipcim+item.processzor_huto_kep+'.jpg'}} style={styles.kep}   />          
+              </View>
+              <View style={{flexDirection: "row"}}>
+              <View style={{flex:2}}>
+              <Image   source={{uri: IP.ipcim+item.processzor_huto_kep+'.png'}} style={styles.kep}   />
+              </View> 
+
+
+                <View style={{flex:2}}>
+              <Text style={styles.adatok}>
+                Csapágy típus:
+                {item.processzor_huto_csapagytipus}
+              </Text>
+              <Text style={styles.adatok}>
+                LED világítás: 
+                {item.processzor_huto_led_vilagitas} 
+              </Text>
+              <Text style={styles.adatok}>
+                Processzor foglalat: 
+                 {item.processzor_huto_processzor_foglalat}
+              </Text>
+              </View>
+              </View>    
               </View>
             )}
           />
@@ -124,5 +148,18 @@ const styles = StyleSheet.create({
     borderColor:'purple',
     borderWidth:5,
     marginLeft:10
+  },
+  adatok:{
+    fontSize:14,
+    color:'white',
+    textAlign:'left',
+    marginBottom:8,
+    textShadowOffset:{
+      height:5,
+      width:5
+    },
+    textShadowColor:'black',
+    textShadowRadius:10,
+    paddingStart:10
   }
 });
